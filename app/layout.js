@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={outfit.className}>
           <Toaster />
+          <main className="min-h-screen bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover">
           {children}
+          </main>
         </body>
       </html>
     </ClerkProvider>

@@ -83,7 +83,11 @@ function Dashboard() {
 
   return (
     <div className="p-8 bg-">
-      <h2 className="font-bold text-4xl">Hi, {user?.fullName} 👋</h2>
+      <h2 className="font-bold text-4xl">
+      <span className="bg-gradient-to-r from-indigo-400 to-pink-600 bg-clip-text text-transparent">
+      Hi, {user?.fullName}
+      </span>
+        👋</h2>
       <p className="text-gray-500">
         Here's what happenning with your money, Lets Manage your expense
       </p>

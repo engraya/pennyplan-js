@@ -11,6 +11,9 @@ import { useRouter } from "next/navigation";
 function DashboardLayout({ children }) {
   const { user } = useUser();
   const router = useRouter();
+
+
+  
   useEffect(() => {
     user && checkUserBudgets();
   }, [user]);
