@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image"
+import { useUser, UserButton } from "@clerk/nextjs";
 function Hero() {
+
+  const { user, isSignedIn } = useUser();
+
+
   return (
 <section className="relatve">
   {/* Container */}
@@ -12,10 +17,15 @@ function Hero() {
       <p className="mx-auto mb-5 max-w-[540px] text-xl text-[#636262] lg:mb-8">Manage your money effortlessly with PennyPlan, your all-in-one financial tracker that helps you budget smarter, save more, and grow your wealth. Powered by cutting-edge AI, PennyPlan gives you personalized financial advice tailored to your spending habits and savings goals. Whether you’re tracking expenses, managing budgets, or seeking guidance on investments, PennyPlan is here to help you build a secure financial future. With an intuitive interface and real-time insights, taking control of your finances has never been easier.</p>
       {/* Button Wrap */}
       <div className="flex justify-center">
-        <Link href="/sign-in" className="mr-5 inline-block rounded-xl bg-black px-8 py-4 text-center font-semibold text-white [box-shadow:rgb(19,_83,_254)_6px_6px] md:mr-6">Get Started</Link>
-        <Link href="/dashboard" className="flex max-w-full flex-row items-center justify-center rounded-xl border border-solid border-[#1353fe] px-6 py-3 font-semibold text-[#1353fe] [box-shadow:rgb(19,_83,_254)_6px_6px]">
-          <p className="text-black">Dashboard</p>
-        </Link>
+        {isSignedIn ?  (
+      <Link href="/dashboard" className="flex max-w-full flex-row items-center justify-center rounded-xl border border-solid border-[#1353fe] px-6 py-3 font-semibold text-[#1353fe] [box-shadow:rgb(19,_83,_254)_6px_6px]">
+      <p className="text-black">Dashboard</p>
+    </Link>
+        ) : (
+          <Link href="/sign-in" className="mr-5 inline-block rounded-xl bg-black px-8 py-4 text-center font-semibold text-white [box-shadow:rgb(19,_83,_254)_6px_6px] md:mr-6">Get Started</Link>
+
+        )}
+  
       </div>
     </div>
     {/* Image Div */}
